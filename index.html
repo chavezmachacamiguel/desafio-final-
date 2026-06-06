@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoDynamics</title>
+
+<link rel="stylesheet" href="./css/estilos.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>💼 EcoDynamics</h1>
+
+<nav>
+<a href="#intro">Inicio</a>
+<a href="#simuladores">Simuladores</a>
+<a href="#analisis">Análisis</a>
+</nav>
+
+<button onclick="modo()">🌙☀️</button>
+
+</header>
+
+<!-- INTRODUCCIÓN -->
+
+<section id="intro" class="section">
+
+<h2>📊 Fundamentos del Simulador</h2>
+
+<p>
+EcoDynamics es una plataforma educativa diseñada para analizar el comportamiento
+de la economía familiar frente a situaciones reales como inflación,
+desabastecimiento, incremento del transporte y cambios en el consumo.
+</p>
+
+<p>
+Su objetivo es ayudar a comprender cómo pequeñas variaciones económicas
+pueden afectar directamente el presupuesto de una familia o comunidad.
+</p>
+
+<h3>Conceptos Fundamentales</h3>
+
+<ul>
+<li><b>Economía Familiar:</b> Administración eficiente de ingresos y gastos.</li>
+
+<li><b>Inflación:</b> Incremento continuo de los precios que reduce el valor del dinero.</li>
+
+<li><b>Oferta y Demanda:</b> Relación entre los productos disponibles y la cantidad que las personas desean adquirir.</li>
+
+<li><b>Escasez:</b> Ocurre cuando la demanda supera la oferta.</li>
+
+<li><b>Poder Adquisitivo:</b> Capacidad real que tiene una persona para comprar bienes y servicios.</li>
+
+<li><b>Especulación:</b> Incremento artificial de la demanda debido a rumores o incertidumbre.</li>
+
+</ul>
+
+</section>
+
+<!-- PANEL SUPERIOR -->
+
+<section class="dashboard">
+
+<div class="box indicador1">
+<h3>💰 Presupuesto Familiar</h3>
+<h1 id="presupuestoTotal">0 Bs.</h1>
+<p>Resultado general</p>
+</div>
+
+<div class="box indicador2">
+<h3>📈 Poder de Compra</h3>
+<h1 id="compraReal">100%</h1>
+<p>Capacidad adquisitiva</p>
+</div>
+
+<div class="box indicador3">
+<h3>⚠ Riesgo Económico</h3>
+<h1 id="riesgoNivel">Bajo</h1>
+<p>Nivel de alerta</p>
+</div>
+
+<div class="box indicador4">
+<h3>🛒 Estado del Sistema</h3>
+<h1 id="estadoGeneral">100%</h1>
+<p>Indicador global</p>
+</div>
+
+</section>
+
+<!-- NAVEGACIÓN -->
+
+<section class="nav-boxes">
+
+<a href="#abastecimiento">Abastecimiento</a>
+<a href="#precios">Inflación</a>
+<a href="#transporte">Transporte</a>
+<a href="#compras">Compras</a>
+<a href="#rumor">Rumor</a>
+<a href="#poder">Poder Adquisitivo</a>
+
+</section>
+
+<!-- SIMULADORES -->
+
+<section id="simuladores">
+
+<!-- 1 -->
+
+<div id="abastecimiento" class="card">
+
+<h2>1. Simulador de Abastecimiento</h2>
+
+<p><b>¿Para qué sirve?</b></p>
+
+<p>
+Permite analizar si los recursos disponibles serán suficientes para cubrir
+la demanda diaria de una población o familia.
+</p>
+
+<p><b>Variables:</b></p>
+
+<ul>
+<li>Reserva inicial disponible.</li>
+<li>Consumo diario.</li>
+<li>Cantidad reabastecida.</li>
+</ul>
+
+<p><b>Ejemplo:</b></p>
+
+<ul>
+<li>Reserva: 100 litros.</li>
+<li>Consumo: 15 litros.</li>
+<li>Reabastecimiento: 5 litros.</li>
+</ul>
+
+<label>Reserva inicial</label>
+<input id="r" placeholder="Ej: 100">
+
+<label>Consumo diario</label>
+<input id="c" placeholder="Ej: 15">
+
+<label>Reabastecimiento</label>
+<input id="re" placeholder="Ej: 5">
+
+<button onclick="sim1()">Calcular</button>
+
+<div class="diagnostico">
+<h3>📊 Interpretación</h3>
+<p id="diag1">
+Ingrese los datos para generar el análisis.
+</p>
+</div>
+
+<p id="res1"></p>
+
+<canvas id="g1"></canvas>
+
+</div>
+
+<!-- 2 -->
+
+<div id="precios" class="card">
+
+<h2>2. Simulador de Inflación</h2>
+
+<p><b>¿Para qué sirve?</b></p>
+
+<p>
+Calcula el incremento porcentual de un producto y muestra cómo afecta
+el poder adquisitivo de las familias.
+</p>
+
+<p><b>Variables:</b></p>
+
+<ul>
+<li>Precio anterior.</li>
+<li>Precio actual.</li>
+</ul>
+
+<p><b>Ejemplo:</b></p>
+
+<ul>
+<li>Antes: 10 Bs.</li>
+<li>Ahora: 15 Bs.</li>
+</ul>
+
+<label>Precio anterior</label>
+<input id="pa" placeholder="Ej: 10">
+
+<label>Precio actual</label>
+<input id="pc" placeholder="Ej: 15">
+
+<button onclick="sim2()">Calcular</button>
+
+<div class="diagnostico">
+<h3>📊 Interpretación</h3>
+<p id="diag2">
+Ingrese los datos para generar el análisis.
+</p>
+</div>
+
+<p id="res2"></p>
+
+<canvas id="g2"></canvas>
+
+</div>
+
+<!-- 3 -->
+
+<div id="transporte" class="card">
+
+<h2>3. Simulador de Transporte</h2>
+
+<p><b>¿Para qué sirve?</b></p>
+
+<p>
+Analiza cómo el aumento de distancia o combustible incrementa el costo
+final de distribución.
+</p>
+
+<label>Distancia normal</label>
+<input id="dn" placeholder="Ej: 100">
+
+<label>Distancia actual</label>
+<input id="dd" placeholder="Ej: 150">
+
+<label>Costo por km</label>
+<input id="cost" placeholder="Ej: 2">
+
+<button onclick="sim3()">Calcular</button>
+
+<div class="diagnostico">
+<h3>📊 Interpretación</h3>
+<p id="diag3">
+Ingrese los datos para generar el análisis.
+</p>
+</div>
+
+<p id="res3"></p>
+
+<canvas id="g3"></canvas>
+
+</div>
+
+<!-- 4 -->
+
+<div id="compras" class="card">
+
+<h2>4. Simulador de Compras</h2>
+
+<p><b>¿Para qué sirve?</b></p>
+
+<p>
+Compara el presupuesto disponible con el gasto realizado para determinar
+si existe ahorro o déficit.
+</p>
+
+<label>Presupuesto</label>
+<input id="pre" placeholder="Ej: 2500">
+
+<label>Gasto total</label>
+<input id="tot" placeholder="Ej: 2800">
+
+<button onclick="sim4()">Calcular</button>
+
+<div class="diagnostico">
+<h3>📊 Interpretación</h3>
+<p id="diag4">
+Ingrese los datos para generar el análisis.
+</p>
+</div>
+
+<p id="res4"></p>
+
+<canvas id="g4"></canvas>
+
+</div>
+
+<!-- 5 -->
+
+<div id="rumor" class="card">
+
+<h2>5. Simulador de Rumor y Especulación</h2>
+
+<p><b>¿Para qué sirve?</b></p>
+
+<p>
+Simula el incremento de la demanda provocado por rumores o miedo colectivo.
+</p>
+
+<label>Demanda inicial</label>
+<input id="d" placeholder="Ej: 100">
+
+<label>Porcentaje de pánico</label>
+<input id="p" placeholder="Ej: 30">
+
+<button onclick="sim5()">Calcular</button>
+
+<div class="diagnostico">
+<h3>📊 Interpretación</h3>
+<p id="diag5">
+Ingrese los datos para generar el análisis.
+</p>
+</div>
+
+<p id="res5"></p>
+
+<canvas id="g5"></canvas>
+
+</div>
+
+<!-- 6 -->
+
+<div id="poder" class="card">
+
+<h2>6. Simulador de Poder Adquisitivo</h2>
+
+<p><b>¿Para qué sirve?</b></p>
+
+<p>
+Compara ingresos y gastos para determinar la capacidad económica real
+de una persona o familia.
+</p>
+
+<label>Ingreso mensual</label>
+<input id="ing" placeholder="Ej: 5000">
+
+<label>Gasto mensual</label>
+<input id="gasto" placeholder="Ej: 4200">
+
+<button onclick="sim6()">Calcular</button>
+
+<div class="diagnostico">
+<h3>📊 Interpretación</h3>
+<p id="diag6">
+Ingrese los datos para generar el análisis.
+</p>
+</div>
+
+<p id="res6"></p>
+
+<canvas id="g6"></canvas>
+
+</div>
+
+</section>
+
+<!-- CONCLUSIÓN -->
+
+<section id="analisis" class="section">
+
+<h2>📈 Interpretación General</h2>
+
+<p>
+Los seis simuladores permiten comprender cómo diversos factores económicos
+pueden afectar el bienestar de una población. El análisis conjunto facilita
+la toma de decisiones preventivas frente a escenarios de inflación,
+escasez o disminución del poder adquisitivo.
+</p>
+
+<p>
+Este sistema constituye una herramienta didáctica para fortalecer el
+aprendizaje de conceptos económicos mediante simulaciones interactivas
+y representación gráfica de los resultados.
+</p>
+
+</section>
+
+<script src="./js/script.js"></script>
+
+</body>
+</html>
